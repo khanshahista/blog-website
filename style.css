@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d8b7ff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.navbar {
+  background-color: #e6ccff;
+  padding: 15px 20px;
+  border-radius: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  animation: slideInFromLeft 0.8s ease-out forwards;
+  transition: transform 0.3s ease;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.navbar ul li a:hover {
+  color: #ff9800;
+  transform: translateY(-3px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.post {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  animation: pulse 0.5s ease-in-out, float 3s ease-in-out infinite;
+}
+
+.post img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.post:hover img {
+  transform: scale(1.03);
+}
+
+.post-title {
+  margin-top: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.post:hover .post-title {
+  color: #1a73e8;
+}
+
+.post-snippet {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.read-more {
+  margin-top: 15px;
+  display: inline-block;
+  color: #1a73e8;
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.read-more::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1a73e8;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+  color: #0d5bb0;
+}
+
+.read-more:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.search-container {
+  text-align: center;
+  margin: 100px 0 40px;
+}
+
+#searchInput {
+  padding: 12px 20px;
+  width: 300px;
+  font-size: 16px;
+  border: 2px solid #e6ccff;
+  border-radius: 30px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #9c64ff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 80%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 25px 20px;
+  margin-top: 80px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  font-size: 16px;
+}
+
+.footer-right ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.footer-right a {
+  color: white;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #ff9800;
+  transform: translateY(-3px);
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #9c64ff;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+  grid-column: 1 / -1;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.post:nth-child(1) { animation-delay: 0.2s; }
+.post:nth-child(2) { animation-delay: 0.4s; }
+.post:nth-child(3) { animation-delay: 0.6s; }
+.post:nth-child(4) { animation-delay: 0.8s; }
+.post:nth-child(5) { animation-delay: 1.0s; }
+.post:nth-child(6) { animation-delay: 1.2s; }
+.post:nth-child(7) { animation-delay: 1.4s; }
+.post:nth-child(8) { animation-delay: 1.6s; }
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .blog-posts {
+    grid-template-columns: 1fr;
+  }
+
+  #searchInput {
+    width: 90%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-right ul {
+    justify-content: center;
+  }
+}
