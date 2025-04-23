@@ -30,7 +30,32 @@ const blogPosts = [
     "title": "Operating System",
     "snippet": "What is Operating System.",
     "keyword": "Operating System",
-    "details": "Cloud computing is the delivery of computing services like storage, servers, databases, networking, and software over the internet, allowing users to access and manage resources on-demand without owning physical hardware.."
+    "details": "An Operating System (OS) is system software that manages computer hardware and software resources and provides common services for computer programs.
+
+In simple words, it acts as a bridge between the user and the computer hardware.
+
+Main Functions:
+
+Manages hardware (CPU, memory, devices)
+
+Runs applications and programs
+
+Provides a user interface (like Windows or macOS)
+
+Handles file management and system security
+
+
+Examples:
+
+Windows
+
+macOS
+
+Linux
+
+Android
+
+iOS"
   },
   {
     "title": "Operating System - Windows",
