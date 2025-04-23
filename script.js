@@ -11,7 +11,7 @@ const blogPosts = [
   {
     "title": "Mac OS",
     "snippet": "Mac OS continues to evolve with enhanced security and new features, enabling it to function like a pro.",
-    "keyword": "Apple",
+    "keyword": "apple",
     "details": "Mac OS is Apple's proprietary operating system that powers its desktop and laptop devices. With each new version, Mac OS introduces improved security features, sleek user interfaces, and seamless integration with other Apple devices. The latest updates focus on enhancing the performance of Macs with Apple's custom silicon, adding features like Universal Control, and improving privacy features for users."
   },
   {
