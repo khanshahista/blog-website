@@ -18,7 +18,7 @@ const blogPosts = [
     "title": "Cloud Computing",
     "snippet": "what is Cloud computing.",
     "keyword": "Cloud Computing",
-    "details": "Cloud C omputing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
+    "details": "Cloud Computing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
   },
   {
     "title": "Exploring Android OS",
