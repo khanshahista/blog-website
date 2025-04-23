@@ -27,6 +27,12 @@ const blogPosts = [
     "details": "Android is an open-source operating system developed by Google. It is the most widely used mobile OS, running on a variety of devices ranging from smartphones and tablets to smartwatches and TVs. Android offers a high degree of customization and flexibility, with an ecosystem that includes Google Play Store apps, and the ability to tweak system settings. The OS receives regular updates with new features, improved security, and performance enhancements."
   },
   {
+    "title": "Operating System",
+    "snippet": "What is Operating System.",
+    "keyword": "Operating System",
+    "details": "Cloud computing is the delivery of computing services like storage, servers, databases, networking, and software over the internet, allowing users to access and manage resources on-demand without owning physical hardware.."
+  },
+  {
     "title": "Operating System - Windows",
     "snippet": "Windows OS remains the go-to choice for business and gaming.",
     "keyword": "Microsoft Windows",
