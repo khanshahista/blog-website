@@ -17,7 +17,7 @@ const blogPosts = [
   {
     "title": "DBMS",
     "snippet": "Feature of DBMS.",
-    "keyword": "Data base management system",
+    "keyword": "",
     "details": "Organizes and manages data,Ensures security and integrity,Supports multi-user access,Provides backup and recovery,Uses SQL for queries,Reduces data redundancy."
   },
   {
