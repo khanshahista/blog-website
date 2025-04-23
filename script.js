@@ -16,7 +16,7 @@ const blogPosts = [
   },
   {
     "title": "Cloud Computing",
-    "snippet": "what is Cloud computing.",
+    "snippet": "What is Cloud computing?.",
     "keyword": "Cloud Computing",
     "details": "Cloud Computing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
   },
