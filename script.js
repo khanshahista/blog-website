@@ -10,13 +10,13 @@ const apiKey = 'mdB4ZRIaDQOyc6i94qFTklD5MMTVZzZHVLjIvYHq4Hd3xlzFiVa0Ak86';
 const blogPosts = [
   {
     "title": "Python",
-    "snippet": "What is Python?.",
+    "snippet": "What is Python?",
     "keyword": "python Book",
     "details": "Python is a popular high-level programming language known for its simplicity and readability. It's widely used in areas like web development, data science, automation, and AI. Python has an easy-to-learn syntax, strong community support, and a large set of libraries that make it great for both beginners and professionals."
   },
   {
     "title": "Cloud Computing",
-    "snippet": "What is Cloud computing?.",
+    "snippet": "What is Cloud computing?",
     "keyword": "Cloud Computing",
     "details": "Cloud Computing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
   },
