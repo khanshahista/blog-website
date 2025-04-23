@@ -12,10 +12,9 @@ const blogPosts = [
     "title": "Python",
     "snippet": "What is Python?.",
     "keyword": "python Book",
-    "details": "Python is a popular, high-level programming language known for its **simplicity and readability**. It's widely used in areas like **web development, data science, automation, and AI**. Python has an easy-to-learn syntax, strong community support, and a large set of libraries that make it great for both beginners and professionals."
+    "details": "Python is a popular, high-level programming language known for its simplicity and readability. It's widely used in areas like web development, data science, automation, and AI. Python has an easy-to-learn syntax, strong community support, and a large set of libraries that make it great for both beginners and professionals."
   },
 Let me know if you want help learning it or building something with it!."
-  },
   {
     "title": "Exploring Android OS",
     "snippet": "Android OS powers billions of devices worldwide.",
