@@ -15,10 +15,10 @@ const blogPosts = [
     "details": "Python is a popular high-level programming language known for its simplicity and readability. It's widely used in areas like web development, data science, automation, and AI. Python has an easy-to-learn syntax, strong community support, and a large set of libraries that make it great for both beginners and professionals."
   },
   {
-    "title": "DBMS",
-    "snippet": "Feature of DBMS.",
-    "keyword": "Data base management system",
-    "details": "Organizes and manages data."
+    "title": "Cloud Computing",
+    "snippet": "what is Cloud computing.",
+    "keyword": "Cloud Computing",
+    "details": "Cloud C omputing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
   },
   {
     "title": "Exploring Android OS",
