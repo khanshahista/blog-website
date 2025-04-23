@@ -11,7 +11,7 @@ const blogPosts = [
   {
     "title": "Cloud Computing",
     "snippet": "What is Cloud Computing?.",
-    "keyword": "cloud computing",
+    "keyword": "python Book",
     "details": "Cloud computing eliminates the need for physical IT infrastructure, offering flexibility, cost savings, and global accessibility. Whether you're a developer, business, or casual user, the cloud powers everything from simple websites to AI-driven applications."
   },
   {
