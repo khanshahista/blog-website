@@ -63,6 +63,12 @@ const blogPosts = [
     "details": "Blockchain is a decentralized digital ledger technology that ensures data is securely stored and verified. It enables secure, transparent, and tamper-resistant transactions, which has made it popular in the world of cryptocurrencies. Beyond digital currencies like Bitcoin, blockchain has applications in supply chain management, healthcare, voting systems, and intellectual property protection. The decentralized nature of blockchain reduces the risk of fraud and increases trust in various industries."
   },
   {
+    "title": "YOGA",
+    "snippet": "What is the benefit of yoga?",
+    "keyword": "yoga",
+    "details": "Yoga improves flexibility, strength, and posture, reduces stress, boosts mental clarity, and promotes overall physical and emotional well-being. "
+  },
+  {
     "title": "Cryptocurrency: Revolutionizing Finance",
     "snippet": "Cryptocurrency is changing the way we think about money and finance.",
     "keyword": "cryptocurrency",
