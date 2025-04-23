@@ -68,6 +68,12 @@ const blogPosts = [
     "keyword": "yoga",
     "details": "Yoga improves flexibility, strength, and posture, reduces stress, boosts mental clarity, and promotes overall physical and emotional well-being. "
   },
+   {
+    "title": "Latest News",
+    "snippet": "Pahalgam Terror Attack?",
+    "keyword": "Pahalgam",
+    "details": "On April 22, 2025, terrorists attacked tourists in Pahalgam, Jammu & Kashmir, killing at least 28 people and injuring many. A group called “Kashmir Resistance” claimed responsibility. Victims were from several Indian states and included a foreigner. The Indian government blamed Pakistan-backed groups and took diplomatic action. PM Modi condemned the attack and promised justice. Tourism in the region has been heavily affected."
+  },
   {
     "title": "Cryptocurrency: Revolutionizing Finance",
     "snippet": "Cryptocurrency is changing the way we think about money and finance.",
