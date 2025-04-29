@@ -14,7 +14,7 @@ function initBlog() {
   showLoading();
   
   // First fetch the posts data from JSON
-  fetch('data/posts.json')
+  fetch('posts.json')
     .then(response => response.json())
     .then(data => {
       blogPosts = data.posts;
