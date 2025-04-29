@@ -7,107 +7,43 @@ const closeBtn = document.querySelector('.close-btn');
 
 const apiKey = 'mdB4ZRIaDQOyc6i94qFTklD5MMTVZzZHVLjIvYHq4Hd3xlzFiVa0Ak86';
 
-const blogPosts = [
-  {
-    "title": "Python",
-    "snippet": "What is Python?",
-    "keyword": "python Book",
-    "details": "Python is a popular high-level programming language known for its simplicity and readability. It's widely used in areas like web development, data science, automation, and AI. Python has an easy-to-learn syntax, strong community support, and a large set of libraries that make it great for both beginners and professionals."
-  },
-  {
-    "title": "Cloud Computing",
-    "snippet": "What is Cloud computing?",
-    "keyword": "Cloud Computing",
-    "details": "Cloud Computing is the use of internet-based services to store, manage, and process data instead of using local servers or personal devices."
-  },
-  {
-    "title": "Exploring Android OS",
-    "snippet": "Android OS powers billions of devices worldwide.",
-    "keyword": "android",
-    "details": "Android is an open-source operating system developed by Google. It is the most widely used mobile OS, running on a variety of devices ranging from smartphones and tablets to smartwatches and TVs. Android offers a high degree of customization and flexibility, with an ecosystem that includes Google Play Store apps, and the ability to tweak system settings. The OS receives regular updates with new features, improved security, and performance enhancements."
-  },
-  {
-    "title": "Operating System",
-    "snippet": "What is Operating System.",
-    "keyword": "Operating System",
-    "details": "An Operating System (OS) is system software that manages computer hardware and software resources and provides common services for computer programs."
-  },
-  {
-    "title": "Operating System - Windows",
-    "snippet": "Windows OS remains the go-to choice for business and gaming.",
-    "keyword": "Microsoft Windows",
-    "details": "Windows OS, developed by Microsoft, is one of the most widely used operating systems for both personal and professional computing. With each new release, Windows introduces features designed to improve user productivity, gaming experiences, and security. Windows 10 and Windows 11 have brought in a modernized user interface, improved multitasking, better integration with cloud services, and the introduction of virtual desktops."
-  },
-  {
-    "title": "Linux: The Open-Source Revolution",
-    "snippet": "Linux is a robust and flexible OS used in servers, desktops, and more.",
-    "keyword": "kali linux",
-    "details": "Linux is an open-source operating system kernel that serves as the foundation for a variety of distributions (distros) like Ubuntu, CentOS, and Debian. It is widely used in server environments, but has also gained traction as a desktop OS due to its stability, security, and flexibility. The Linux community contributes to constant improvements, and the OS is ideal for developers, security professionals, and those seeking customization."
-  },
-  {
-    "title": "The Impact of Artificial Intelligence",
-    "snippet": "AI is shaping industries and transforming the way we live and work.",
-    "keyword": "coding",
-    "details": "Artificial intelligence (AI) is the simulation of human intelligence processes by machines. It includes technologies like machine learning, natural language processing, and robotics, which are being applied in industries ranging from healthcare to finance. AI can help automate repetitive tasks, provide insights from vast data sets, and even enhance customer experiences with personalized recommendations. AI is also playing a crucial role in creating smarter products and services."
-  },
-  {
-    "title": "AI and Machine Learning: A New Era",
-    "snippet": "Machine learning is driving the next generation of AI technology.",
-    "keyword": "machine learning",
-    "details": "Machine learning (ML) is a subset of artificial intelligence that focuses on building algorithms that allow computers to learn from data. ML enables systems to improve their performance without explicit programming. In recent years, advancements in deep learning and neural networks have taken machine learning to new heights, contributing to breakthroughs in image recognition, natural language processing, and autonomous vehicles. ML is revolutionizing industries such as healthcare, marketing, and finance."
-  },
-  {
-    "title": "Blockchain: The Future of Data Security",
-    "snippet": "Blockchain technology is providing new ways to ensure data integrity and security.",
-    "keyword": "blockchain",
-    "details": "Blockchain is a decentralized digital ledger technology that ensures data is securely stored and verified. It enables secure, transparent, and tamper-resistant transactions, which has made it popular in the world of cryptocurrencies. Beyond digital currencies like Bitcoin, blockchain has applications in supply chain management, healthcare, voting systems, and intellectual property protection. The decentralized nature of blockchain reduces the risk of fraud and increases trust in various industries."
-  },
-  {
-    "title": "YOGA",
-    "snippet": "What is the benefit of yoga?",
-    "keyword": "yoga",
-    "details": "Yoga improves flexibility, strength, and posture, reduces stress, boosts mental clarity, and promotes overall physical and emotional well-being. "
-  },
-   {
-    "title": "Latest News",
-    "snippet": "Pahalgam Terror Attack?",
-    "keyword": "Pahalgam",
-    "details": "On April 22, 2025, terrorists attacked tourists in Pahalgam, Jammu & Kashmir, killing at least 28 people and injuring many. A group called “Kashmir Resistance” claimed responsibility. Victims were from several Indian states and included a foreigner. The Indian government blamed Pakistan-backed groups and took diplomatic action. PM Modi condemned the attack and promised justice. Tourism in the region has been heavily affected."
-  },
-  {
-    "title": "Cryptocurrency: Revolutionizing Finance",
-    "snippet": "Cryptocurrency is changing the way we think about money and finance.",
-    "keyword": "cryptocurrency",
-    "details": "Cryptocurrency is a form of digital or virtual currency that relies on cryptography for security. It operates independently of central banks, making it a decentralized form of currency. Bitcoin, Ethereum, and other cryptocurrencies have gained popularity for their potential to offer lower transaction fees and faster transfers compared to traditional banking systems. Cryptocurrencies are also seen as an investment opportunity, with the potential for significant returns, but they come with high volatility and risks."
-  }
-];
+// Load posts from JSON instead of hardcoded array
+let blogPosts = [];
 
 function initBlog() {
   showLoading();
   
-  const imageFetchPromises = blogPosts.map(post => {
-    return fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(post.keyword)}&per_page=1`, {
-      headers: {
-        Authorization: apiKey
-      }
-    })
+  // First fetch the posts data from JSON
+  fetch('data/posts.json')
     .then(response => response.json())
     .then(data => {
-      return {
-        ...post,
-        imageUrl: data.photos.length > 0 ? data.photos[0].src.medium : 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg'
-      };
-    })
-    .catch(error => {
-      console.error('Error fetching image for', post.keyword, error);
-      return {
-        ...post,
-        imageUrl: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg'
-      };
-    });
-  });
+      blogPosts = data.posts;
+      
+      // Then fetch images for each post
+      const imageFetchPromises = blogPosts.map(post => {
+        return fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(post.keyword)}&per_page=1`, {
+          headers: {
+            Authorization: apiKey
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          return {
+            ...post,
+            imageUrl: data.photos.length > 0 ? data.photos[0].src.medium : 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg'
+          };
+        })
+        .catch(error => {
+          console.error('Error fetching image for', post.keyword, error);
+          return {
+            ...post,
+            imageUrl: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg'
+          };
+        });
+      });
 
-  Promise.all(imageFetchPromises)
+      return Promise.all(imageFetchPromises);
+    })
     .then(postsWithImages => {
       renderPosts(postsWithImages);
       hideLoading();
@@ -115,6 +51,15 @@ function initBlog() {
     .catch(error => {
       console.error('Error loading posts:', error);
       hideLoading();
+      
+      // Fallback to hardcoded posts if JSON fails
+      const fallbackPosts = [/* your original hardcoded posts array */];
+      blogPosts = fallbackPosts;
+      const fallbackImages = fallbackPosts.map(post => ({
+        ...post,
+        imageUrl: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg'
+      }));
+      renderPosts(fallbackImages);
     });
 }
 
@@ -124,8 +69,9 @@ function renderPosts(posts) {
   posts.forEach((post, index) => {
     const blogPost = document.createElement('div');
     blogPost.className = 'post reveal';
+    blogPost.style.animationDelay = `${index * 0.1}s`; // Staggered animation
     blogPost.innerHTML = `
-      <img src="${post.imageUrl}" alt="${post.keyword}">
+      <img src="${post.imageUrl}" alt="${post.keyword}" class="post-image">
       <h3 class="post-title">${post.title}</h3>
       <p class="post-snippet">${post.snippet}</p>
       <a href="#" class="read-more" onclick="openModal('${post.title.replace(/'/g, "\\'")}', '${post.details.replace(/'/g, "\\'")}'); return false;">Read More</a>
@@ -248,3 +194,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 searchInput.addEventListener('input', searchPosts);
+
+// === Animated Comment Section ===
+document.addEventListener('DOMContentLoaded', () => {
+  loadComments();
+  revealOnScroll();
+});
+
+function addComment() {
+  const input = document.getElementById("commentInput");
+  const comment = input.value.trim();
+  if (comment === "") return;
+
+  let comments = JSON.parse(localStorage.getItem("comments")) || [];
+  comments.push(comment);
+  localStorage.setItem("comments", JSON.stringify(comments));
+
+  input.value = "";
+  loadComments();
+}
+
+function loadComments() {
+  const commentsList = document.getElementById("commentsList");
+  const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+  commentsList.innerHTML = comments
+    .map((c, i) => `
+      <div class="comment-item reveal" style="animation-delay:${i * 0.1}s">
+        <strong>User ${i + 1}:</strong> ${c}
+      </div>
+    `)
+    .join("");
+
+  revealOnScroll();
+}
