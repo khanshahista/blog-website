@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
+  <!--SEO Meta Tags -->
+  <meta name="description" content="Tech Blog sharing insightful articles, tutorials, and trends.">
+  <meta name="author" content="Shahista Khan">
+  <meta name="keywords" content="tech blog, programming, web development, tutorials, coding, technology, Shahista Khan, Shahista Khan blog site">
+  <meta property="og:title" content="Tech Blog" />
+  <meta property="og:type" content="https://khanshahista.github.io/blog-website/#" />
+  <meta property="og:url" content="https://khanshahista.github.io/blog-website/#" />
+<!--Linking files -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="darkmode.css">
 </head>
 <body>
+  <button id="darkModeToggle" class="dark-mode-toggle">🌙 Dark Mode</button>
+
   <div class="navbar">
     <ul>
       <li><a href="#">Home</a></li>
@@ -25,7 +36,15 @@
     <div class="blog-posts" id="blog-container"></div>
   </div>
 
+  <div class="comment-section reveal">
+  <h3>Leave a Comment</h3>
+  <textarea id="commentInput" placeholder="Write your comment..." rows="4"></textarea>
+  <button onclick="addComment()">Post Comment</button>
+  <div id="commentsList" class="comment-list"></div>
+</div>
+
   
+
   <div id="readMoreModal" class="modal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
@@ -34,7 +53,6 @@
     </div>
   </div>
 
- 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-left">
@@ -49,6 +67,7 @@
     </div>
   </footer>
 
+  <script src="darkmode.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
