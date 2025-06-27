@@ -65,6 +65,7 @@ body {
 
 .navbar ul li {
   margin: 0 20px;
+  position: relative; /* Added for dropdown positioning */
 }
 
 .navbar ul li a {
@@ -80,6 +81,41 @@ body {
 .navbar ul li a:hover {
   color: #ff9800;
   transform: translateY(-3px);
+}
+
+/* Dropdown menu styles */
+.navbar ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #e6ccff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 101;
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.navbar ul li ul li a {
+  font-size: 16px;
+  text-transform: none;
+  color: white;
+  display: block;
+}
+
+.navbar ul li ul li a:hover {
+  color: #ff9800;
+  transform: none; /* Prevent translateY on dropdown items */
 }
 
 .container {
@@ -232,6 +268,7 @@ body {
   color: #333;
   transform: rotate(90deg);
 }
+
 .comment-section {
   max-width: 700px;
   margin: 40px auto;
@@ -257,7 +294,6 @@ body {
   background-color: #f3f3f3;
   border-radius: 5px;
 }
-
 
 .footer {
   background-color: #333;
@@ -338,6 +374,17 @@ body {
 
   .navbar ul li {
     margin: 10px 0;
+  }
+
+  .navbar ul li ul {
+    position: static;
+    width: 100%;
+    text-align: center;
+    background-color: #d5b7ff; /* Slightly darker shade for contrast */
+  }
+
+  .navbar ul li:hover ul {
+    display: block;
   }
 
   .blog-posts {
